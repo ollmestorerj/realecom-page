@@ -738,35 +738,46 @@ footer{
           </div>
         </div>
 
-        <a href="https://calculadorarealecom.com.br/" target="_blank"
+        <a href="#diagnostico"
            style="display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-size:15px;font-weight:600;padding:14px 32px;border-radius:10px;text-decoration:none;transition:all .2s;"
            onmouseover="this.style.background='#fb923c';this.style.transform='translateY(-1px)'"
            onmouseout="this.style.background='var(--orange)';this.style.transform='none'">
-          Acessar a Calculadora REAL — É gratuita <span>↗</span>
+          Quero acesso à Calculadora <span>→</span>
         </a>
       </div>
 
-      <!-- Direita: mockup -->
-      <div class="mockup reveal" style="box-shadow:0 32px 64px rgba(0,0,0,.5),0 0 60px rgba(249,115,22,.06);">
-        <div class="mock-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-          <span class="mock-url">calculadorarealecom.com.br</span>
+      <!-- Direita: video placeholder -->
+      <div class="reveal" style="position:relative;">
+        <!-- Substituir o atributo data-video-id pelo ID do YouTube quando disponível -->
+        <div id="calc-video-placeholder"
+             style="position:relative;width:100%;aspect-ratio:16/9;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 32px 64px rgba(0,0,0,.5),0 0 60px rgba(249,115,22,.04);"
+             onclick="playVideo(this)" data-video-id="SEU_VIDEO_ID_AQUI">
+          <!-- Thumbnail overlay -->
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.15) 0%,rgba(249,115,22,.08) 100%);z-index:1;"></div>
+          <!-- Grid lines decorativas -->
+          <div style="position:absolute;inset:0;z-index:0;opacity:.06;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;"></div>
+          <!-- Conteúdo central -->
+          <div style="position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px;text-align:center;">
+            <!-- Play button -->
+            <div style="width:72px;height:72px;border-radius:50%;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.35);display:flex;align-items:center;justify-content:center;transition:all .2s;"
+                 onmouseover="this.style.background='rgba(249,115,22,.25)';this.style.transform='scale(1.05)'"
+                 onmouseout="this.style.background='rgba(249,115,22,.15)';this.style.transform='scale(1)'">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--orange)"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:16px;font-weight:700;color:var(--white);margin-bottom:6px;">Calculadora REAL em ação</div>
+              <div style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.5;">Vídeo de demonstração em breve.<br>Veja como validar um produto em menos de 5 minutos.</div>
+            </div>
+          </div>
+          <!-- Label em breve -->
+          <div style="position:absolute;top:16px;right:16px;z-index:3;background:rgba(8,8,10,.8);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:6px;padding:5px 12px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);">Em breve</span>
+          </div>
         </div>
-        <div class="mock-body">
-          <div class="mock-label">Simulação — Produto Validado</div>
-          <div class="mock-row"><span class="mk2">Preço de venda</span><span class="mv2">R$ 89,90</span></div>
-          <div class="mock-row"><span class="mk2">Custo do produto</span><span class="mv2">R$ 22,00</span></div>
-          <div class="mock-row"><span class="mk2">Taxa Mercado Livre</span><span class="mv2" style="color:var(--dim)">— R$ 12,59</span></div>
-          <div class="mock-row"><span class="mk2">Frete subsidiado</span><span class="mv2" style="color:var(--dim)">— R$ 8,00</span></div>
-          <div style="height:1px;background:var(--border2);margin:6px 0"></div>
-          <div class="mock-row"><span class="mk2" style="color:var(--text);font-weight:500">Lucro líquido</span><span class="mv2 g">R$ 47,31</span></div>
-          <div class="mock-row"><span class="mk2" style="color:var(--text);font-weight:500">Margem real</span><span class="mv2 p">52,6%</span></div>
-          <div class="mock-row"><span class="mk2" style="color:var(--text);font-weight:500">Status</span><span class="mv2 o">Excelente — acima de 20%</span></div>
-        </div>
-        <!-- Bottom bar -->
-        <div style="padding:16px 24px;border-top:1px solid var(--border);background:rgba(249,115,22,.04);display:flex;align-items:center;justify-content:space-between;">
-          <span style="font-size:13px;color:var(--muted);">Produto aprovado no Triângulo</span>
-          <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;">Comprar ✓</span>
+        <!-- Caption abaixo do player -->
+        <div style="margin-top:14px;display:flex;align-items:center;gap:8px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--orange);"></div>
+          <span style="font-size:13px;color:var(--dim);">Demonstração completa — do produto à margem calculada</span>
         </div>
       </div>
 
@@ -784,10 +795,10 @@ footer{
     <p class="section-sub">Não é promessa. É print, é depoimento, é métrica do ML.</p>
 
     <div class="stats-row reveal">
-      <div class="stat-card"><span class="stat-big">+200</span><div class="stat-lbl">vendedores mentorados</div></div>
-      <div class="stat-card"><span class="stat-big">R$159k</span><div class="stat-lbl">pico mensal de um aluno em 3 meses</div></div>
-      <div class="stat-card"><span class="stat-big">3x</span><div class="stat-lbl">crescimento médio nos primeiros 90 dias</div></div>
-      <div class="stat-card"><span class="stat-big">0</span><div class="stat-lbl">reais para fazer o diagnóstico</div></div>
+      <div class="stat-card"><span class="stat-big">+90</span><div class="stat-lbl">mentorados ativos</div></div>
+      <div class="stat-card"><span class="stat-big">R$28M</span><div class="stat-lbl">em faturamento gerado em 5 meses</div></div>
+      <div class="stat-card"><span class="stat-big">+20%</span><div class="stat-lbl">margem média dos alunos</div></div>
+      <div class="stat-card"><span class="stat-big">R$159k</span><div class="stat-lbl">pico mensal de um único aluno</div></div>
     </div>
 
     <div class="proof-grid reveal">
@@ -940,6 +951,11 @@ footer{
 </footer>
 
 <script>
+function playVideo(el){
+  const id = el.getAttribute('data-video-id');
+  if(!id || id === 'SEU_VIDEO_ID_AQUI') return;
+  el.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen style="width:100%;height:100%;position:absolute;inset:0;border-radius:14px;"></iframe>`;
+}
 function faq(btn){
   const item=btn.parentElement;
   const open=item.classList.contains('open');
