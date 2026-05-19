@@ -406,6 +406,7 @@ footer{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 </style>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
 
@@ -942,59 +943,37 @@ footer{
 
 <!-- FORMULÁRIO -->
 <section class="form-section" id="diagnostico">
-  <div class="form-inner inner">
-    <div class="form-left reveal">
-      <div class="section-tag">Próximo passo</div>
-      <h2>Agende seu diagnóstico gratuito</h2>
-      <p>Uma conversa de 30 minutos para mapear sua situação no ML e mostrar o que é possível — sem enrolação, sem compromisso.</p>
-      <ul class="form-check-list">
-        <li>Diagnóstico 100% gratuito e sem compromisso</li>
-        <li>Resultado em até 24h após o preenchimento</li>
-        <li>Indicação personalizada para o seu perfil</li>
-        <li>Método validado com mais de 90 vendedores</li>
-      </ul>
-    </div>
-    <div class="form-box reveal">
-      <div id="formContent">
-        <h3>Preencha para agendar</h3>
-        <p>Todos os campos são necessários para garantir uma conversa objetiva.</p>
-        <div class="fg"><label>Nome completo</label><input type="text" id="f-nome" placeholder="Como prefere ser chamado?"></div>
-        <div class="fg"><label>WhatsApp com DDD</label><input type="tel" id="f-whats" placeholder="(21) 99999-9999"></div>
-        <div class="fg"><label>Situação no Mercado Livre</label>
-          <select id="f-sit">
-            <option value="" disabled selected>Selecione sua situação</option>
-            <option>Ainda não tenho loja — quero começar</option>
-            <option>Abri a loja mas ainda não vendi</option>
-            <option>Já vendo mas quero melhorar</option>
-            <option>Vendo bem mas quero escalar com mais margem</option>
-          </select>
-        </div>
-        <div class="fg"><label>Faturamento mensal no ML</label>
-          <select id="f-fat">
-            <option value="" disabled selected>Selecione a faixa</option>
-            <option>Ainda não vendo</option>
-            <option>Até R$ 5.000</option>
-            <option>R$ 5.000 a R$ 20.000</option>
-            <option>R$ 20.000 a R$ 50.000</option>
-            <option>Acima de R$ 50.000</option>
-          </select>
-        </div>
-        <div class="fg"><label>Disponibilidade de investimento</label>
-          <select id="f-inv">
-            <option value="" disabled selected>Selecione uma opção</option>
-            <option>Sim, tenho disponibilidade acima de R$ 3.500</option>
-            <option>Tenho disponibilidade mas quero entender melhor primeiro</option>
-            <option>Não tenho disponibilidade no momento</option>
-          </select>
-        </div>
-        <button class="form-submit" onclick="submitForm()">Validar meu Modelo de Negócio →</button>
-        <p class="form-disc">Seus dados não são compartilhados. Contato via WhatsApp em até 24h.</p>
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+
+      <!-- Esquerda — texto -->
+      <div class="reveal">
+        <div class="section-tag">Próximo passo</div>
+        <h2 style="font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-1px;color:var(--white);margin-bottom:16px;line-height:1.1;">Agende seu diagnóstico gratuito</h2>
+        <p style="font-size:16px;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:32px;">Uma conversa de 30 minutos para mapear sua situação no ML e mostrar o que é possível — sem enrolação, sem compromisso.</p>
+        <ul class="form-check-list">
+          <li>Diagnóstico 100% gratuito e sem compromisso</li>
+          <li>Você recebe contato em até 24h</li>
+          <li>Indicação personalizada para o seu perfil</li>
+          <li>Método validado com mais de 90 vendedores</li>
+        </ul>
       </div>
-      <div class="form-success" id="formSuccess">
-        <div class="suc-icon">✅</div>
-        <div class="suc-ttl">Recebemos seu contato!</div>
-        <p class="suc-sub">Entraremos em contato via WhatsApp em até 24h para confirmar o horário.<br><br>Enquanto isso, acesse a <a href="https://calculadorarealecom.com.br/" target="_blank" style="color:var(--purple-l)">Calculadora REAL</a>.</p>
+
+      <!-- Direita — Tally embed -->
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-top:2px solid var(--purple);border-radius:14px;overflow:hidden;padding:8px;">
+        <iframe
+          data-tally-src="https://tally.so/embed/rjJp2X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="400"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Diagnóstico RealEcom"
+          style="display:block;">
+        </iframe>
       </div>
+
     </div>
   </div>
 </section>
@@ -1028,8 +1007,8 @@ function submitForm(){
   if(!n||!w||!s||!fa||!i){alert('Preencha todos os campos.');return;}
   document.getElementById('formContent').style.display='none';
   document.getElementById('formSuccess').style.display='block';
-  // const msg=encodeURIComponent(`Olá! Me chamo ${n} e preenchi o formulário da RealEcom.`);
-  // window.open(`https://wa.me/55SEUNUMERO?text=${msg}`,'_blank');
+  const msg=encodeURIComponent(`Olá! Me chamo ${n}.\n\nPreenchi o formulário da RealEcom e quero agendar meu diagnóstico gratuito.\n\nSituação: ${s}\nFaturamento: ${fa}\nInvestimento: ${i}`);
+  setTimeout(()=>window.open(`https://wa.me/5521979509790?text=${msg}`,'_blank'),800);
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
