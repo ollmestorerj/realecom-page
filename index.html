@@ -1006,6 +1006,19 @@ footer { background-color: #08080A !important; }
 
 <script async src="https://tally.so/widgets/embed.js"></script>
 <script>
+
+// Scroll to top on page load — prevents anchor auto-scroll
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, 50);
+});
+
+// Prevent hash in URL from causing scroll
+if (window.location.hash) {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 function playVideo(el){
   const id = el.getAttribute('data-video-id');
   if(!id || id === 'SEU_VIDEO_ID_AQUI') return;
