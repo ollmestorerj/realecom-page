@@ -413,11 +413,12 @@ footer{
 
 
 @media(max-width:900px){
+  .hero-outer{min-height:auto!important}
   .hero-right-panel{display:none !important}
   .hero-glow-blob{display:none !important}
   .hero-left-panel{
     width:100% !important;
-    padding:80px 24px 60px !important;
+    padding:56px 24px 60px !important;
   }
   .hero-left-panel > div{
     max-width:100% !important;
@@ -694,7 +695,7 @@ footer { background-color: #08080A !important; }
 <script>
 function openDiag(){
   if(window.Tally){
-    Tally.openPopup('rjJp2X',{layout:'modal',width:500,hideTitle:true,overlay:true,emoji:{text:'👋',animation:'wave'}});
+    Tally.openPopup('rjJp2X',{layout:'modal',width:500,hideTitle:true,overlay:true});
     return false;
   }
   return true; // Tally não carregou: cai no href="#diagnostico" normalmente
@@ -717,7 +718,7 @@ function openDiag(){
   </nav>
 
 <!-- HERO -->
-<section style="min-height:100vh;display:flex;align-items:stretch;position:relative;overflow:hidden;padding-top:68px;background:var(--bg);">
+<section class="hero-outer" style="min-height:100vh;display:flex;align-items:stretch;position:relative;overflow:hidden;padding-top:68px;background:var(--bg);">
 
   <!-- Desktop only: foto direita -->
   <div class="hero-right-panel" style="position:absolute;top:0;right:0;width:48%;height:100%;z-index:0;">
@@ -743,11 +744,22 @@ function openDiag(){
       <h1 style="font-size:clamp(28px,3.2vw,48px);font-weight:700;line-height:1.15;letter-spacing:-1px;color:#fff;margin-bottom:16px;max-width:640px;text-align:left;">
         Comece ou destrave a sua operação no <span style="color:var(--orange)">Mercado Livre</span> com método, sem loteria e sem inventar moda.
       </h1>
-      <p style="font-size:clamp(15px,1.4vw,18px);font-weight:300;color:var(--muted);margin-bottom:0;line-height:1.7;max-width:520px;text-align:justify;text-justify:inter-word;">
-        Seja pra começar sem errar, ou pra destravar uma operação que já vende mas não sobra, o caminho é o mesmo: escolher os produtos certos, com demanda real e margem que sobra no fim do mês. É isso que a Mentoria ML10x constrói com você. Agende um diagnóstico gratuito de 30 minutos e descubra onde o seu lucro está travando.
-      </p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:36px;margin-bottom:52px;">
-        <a href="#diagnostico" onclick="return openDiag()" class="btn-main">Agendar diagnóstico gratuito <span>→</span></a>
+      <div style="border-radius:14px;overflow:hidden;margin-top:24px;max-width:420px;">
+        <iframe
+          data-tally-src="https://tally.so/embed/VLXOyE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="200"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Diagnóstico RealEcom"
+          style="display:block;">
+        </iframe>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:12px;margin-bottom:52px;">
+        <!-- TODO: trocar SEUNUMERO pelo número real (com DDI+DDD, só dígitos, ex: 5511999999999) -->
+        <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener" class="btn-main">Falar no WhatsApp <span>→</span></a>
       </div>
       <div class="hero-stats" style="display:flex;gap:0;padding-top:32px;border-top:1px solid var(--border);">
         <div style="flex:1;padding-right:24px;">
