@@ -1487,12 +1487,11 @@ try{
   function lista(){ return PERGUNTAS.filter(function(p){ return !p.se || p.se(resp); }); }
 
   function track(ev,extra){ try{ if(window.fbq) fbq('trackCustom',ev,Object.assign({},resp,extra||{})); }catch(e){} }
-  // Grupos: A = Método Real · B = não vende, 10 mil+ de estoque · C = já vende · D = prioridade (Real Elite)
+  // Grupos: A = Método Real (não vende e tem pouco para estoque) · B = não vende, 10 mil+ · C = já vende · D = prioridade (Real Elite)
   function grupo(){
     var est=resp.estoque, fat=resp.faturamento;
     if(est==='50mais' || fat==='50a100' || fat==='100mais') return 'D';
     if(resp.vende==='nao') return (est==='ate5'||est==='5a10') ? 'A' : 'B';
-    if(fat==='ate10' && est==='ate5') return 'A';
     return 'C';
   }
   function naoPrecifica(){ return resp.precifica==='nao' || resp.precifica==='maisoumenos'; }
