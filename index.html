@@ -740,7 +740,7 @@ function openDiag(){ if(window.qzOpen){ window.qzOpen(); return false; } return 
       </h1>
       <div class="qz-hero">
         <a href="#diagnostico" onclick="return openDiag()" class="btn-main qz-hero-btn">Quero meu Diagnóstico <span>→</span></a>
-        <div class="qz-hero-note">4 perguntas rápidas · leva menos de 1 minuto</div>
+        <div class="qz-hero-note">Perguntas rápidas · leva menos de 1 minuto</div>
       </div>
       <div class="hero-stats" style="display:flex;gap:0;padding-top:32px;border-top:1px solid var(--border);margin-top:36px;">
         <div style="flex:1;padding-right:24px;">
@@ -1452,6 +1452,7 @@ try{
 .qz-opts{display:flex;flex-direction:column;gap:10px}
 .qz-opt{display:block;width:100%;text-align:left;background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;color:#fff;font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
 .qz-opt:hover{border-color:var(--purple);background:rgba(124,58,237,.08)}
+.qz-opt.sel{border-color:var(--purple);background:rgba(124,58,237,.14)}
 .qz-back{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;margin-top:16px;cursor:pointer;padding:4px 0}
 .qz-form iframe{width:100%;border:0;display:block;min-height:240px}
 .qz-mr{text-align:center}
@@ -1468,33 +1469,41 @@ try{
 </div>
 <script>
 (function(){
+  // Perguntas na ordem em que aparecem; "se" decide quem vê cada uma
   var PERGUNTAS=[
     {k:'vende', q:'Você já vende no Mercado Livre?', o:[['nao','Ainda não'],['comecando','Sim, estou começando'],['sim','Sim, já vendo há um tempo']]},
-    {k:'faturamento', q:'Quanto a sua operação fatura por mês hoje?', o:[['0','Ainda não vendo'],['ate10','Até R$ 10 mil'],['10a50','De R$ 10 mil a R$ 50 mil'],['50a100','De R$ 50 mil a R$ 100 mil'],['100mais','Mais de R$ 100 mil']]},
-    {k:'investimento', q:'Quanto você pode investir no negócio nos próximos meses?', o:[['ate5','Até R$ 5 mil'],['5a20','De R$ 5 mil a R$ 20 mil'],['20a50','De R$ 20 mil a R$ 50 mil'],['50mais','Mais de R$ 50 mil']]},
-    {k:'dificuldade', q:'Qual é a sua maior dificuldade hoje?', o:[['produto','Achar produto bom para vender'],['preco','Preço e margem'],['logistica','Logística e estoque'],['vendas','Vender mais e anunciar melhor']]}
+    {k:'tentou', se:function(r){return r.vende==='nao';}, q:'Você já tentou vender ou chegou a anunciar algum produto?', o:[['nunca','Não, vou começar do zero'],['tentou','Já tentei vender, mas não deu certo'],['anunciou','Já anunciei, mas ainda não vendi']]},
+    {k:'faturamento', se:function(r){return r.vende!=='nao';}, q:'Quanto a sua operação fatura por mês hoje?', o:[['ate10','Até R$ 10 mil'],['10a50','De R$ 10 mil a R$ 50 mil'],['50a100','De R$ 50 mil a R$ 100 mil'],['100mais','Mais de R$ 100 mil']]},
+    {k:'precifica', se:function(r){return r.vende!=='nao';}, q:'Você sabe precificar os seus produtos?', o:[['sim','Sim, sei a margem real de cada produto'],['maisoumenos','Mais ou menos, faço uma conta por cima'],['nao','Não, coloco o preço no olho']]},
+    {k:'dificuldade', q:'Qual é a sua maior dificuldade hoje?', o:[['produto','Achar produto bom para vender'],['preco','Preço e margem'],['logistica','Logística e estoque'],['vendas','Vender mais e anunciar melhor']]},
+    {k:'estoque', q:'Quanto você pode comprar de estoque nos próximos meses?', o:[['ate5','Até R$ 5 mil'],['5a20','De R$ 5 mil a R$ 20 mil'],['20a50','De R$ 20 mil a R$ 50 mil'],['50mais','Mais de R$ 50 mil']]}
   ];
   var resp={}, passo=0;
   var box=document.getElementById('qz'), body=document.getElementById('qz-body'), bar=document.getElementById('qz-bar');
+  function lista(){ return PERGUNTAS.filter(function(p){ return !p.se || p.se(resp); }); }
 
   function track(ev,extra){ try{ if(window.fbq) fbq('trackCustom',ev,Object.assign({},resp,extra||{})); }catch(e){} }
   function semPerfil(){
-    var poucoFaturamento = resp.faturamento==='0' || resp.faturamento==='ate10';
-    return poucoFaturamento && resp.investimento==='ate5';
+    var poucoFaturamento = resp.vende==='nao' || resp.faturamento==='ate10';
+    return poucoFaturamento && resp.estoque==='ate5';
   }
   function render(){
-    bar.style.width=(passo/PERGUNTAS.length*100)+'%';
-    var p=PERGUNTAS[passo];
-    body.innerHTML='<div class="qz-step">Pergunta '+(passo+1)+' de '+PERGUNTAS.length+'</div><div class="qz-q">'+p.q+'</div><div class="qz-opts">'
-      +p.o.map(function(o){ return '<button type="button" class="qz-opt" data-v="'+o[0]+'">'+o[1]+'</button>'; }).join('')+'</div>'
+    var L=lista(), p=L[passo];
+    bar.style.width=(passo/L.length*100)+'%';
+    body.innerHTML='<div class="qz-step">Pergunta '+(passo+1)+' de '+L.length+'</div><div class="qz-q">'+p.q+'</div><div class="qz-opts">'
+      +p.o.map(function(o){ return '<button type="button" class="qz-opt'+(resp[p.k]===o[0]?' sel':'')+'" data-v="'+o[0]+'">'+o[1]+'</button>'; }).join('')+'</div>'
       +(passo>0?'<button type="button" class="qz-back">← Voltar</button>':'');
     body.querySelectorAll('.qz-opt').forEach(function(b){ b.onclick=function(){
       resp[p.k]=b.dataset.v;
-      // Quem ainda não vende pula a pergunta de faturamento
-      if(p.k==='vende' && b.dataset.v==='nao'){ resp.faturamento='0'; passo+=2; } else passo++;
-      if(passo>=PERGUNTAS.length) fim(); else render();
+      // Mudou a resposta de "vende": apaga as respostas do outro caminho
+      if(p.k==='vende'){
+        if(b.dataset.v==='nao'){ delete resp.faturamento; delete resp.precifica; }
+        else delete resp.tentou;
+      }
+      passo++;
+      if(passo>=lista().length) fim(); else render();
     };});
-    var bk=body.querySelector('.qz-back'); if(bk) bk.onclick=function(){ passo--; if(passo===1 && resp.vende==='nao') passo=0; render(); };
+    var bk=body.querySelector('.qz-back'); if(bk) bk.onclick=function(){ passo--; render(); };
   }
   function formulario(){
     bar.style.width='100%';
