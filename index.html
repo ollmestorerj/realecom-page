@@ -1458,6 +1458,10 @@ try{
 .qz-mr{text-align:center}
 .qz-mr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0 0 18px}
 .qz-mr .btn-main{display:flex!important;justify-content:center;width:100%;box-sizing:border-box}
+.qz-calc{display:block;text-align:left;margin-top:16px;background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;text-decoration:none}
+.qz-calc b{display:block;color:#fff;font-size:15px}
+.qz-calc span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin:4px 0 8px}
+.qz-calc i{font-style:normal;font-weight:700;font-size:13px;color:#a78bfa}
 .qz-alt{display:block;margin-top:14px;font-size:13px;color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit;width:100%}
 </style>
 <div id="qz" role="dialog" aria-modal="true" aria-label="Diagnóstico realecom">
@@ -1476,17 +1480,23 @@ try{
     {k:'faturamento', se:function(r){return r.vende!=='nao';}, q:'Quanto a sua operação fatura por mês hoje?', o:[['ate10','Até R$ 10 mil'],['10a50','De R$ 10 mil a R$ 50 mil'],['50a100','De R$ 50 mil a R$ 100 mil'],['100mais','Mais de R$ 100 mil']]},
     {k:'precifica', se:function(r){return r.vende!=='nao';}, q:'Você sabe precificar os seus produtos?', o:[['sim','Sim, sei a margem real de cada produto'],['maisoumenos','Mais ou menos, faço uma conta por cima'],['nao','Não, coloco o preço no olho']]},
     {k:'dificuldade', q:'Qual é a sua maior dificuldade hoje?', o:[['produto','Achar produto bom para vender'],['preco','Preço e margem'],['logistica','Logística e estoque'],['vendas','Vender mais e anunciar melhor']]},
-    {k:'estoque', q:'Quanto você pode comprar de estoque nos próximos meses?', o:[['ate5','Até R$ 5 mil'],['5a20','De R$ 5 mil a R$ 20 mil'],['20a50','De R$ 20 mil a R$ 50 mil'],['50mais','Mais de R$ 50 mil']]}
+    {k:'estoque', q:'Quanto você pode comprar de estoque nos próximos meses?', o:[['ate5','Até R$ 5 mil'],['5a10','De R$ 5 mil a R$ 10 mil'],['10a20','De R$ 10 mil a R$ 20 mil'],['20a50','De R$ 20 mil a R$ 50 mil'],['50mais','Mais de R$ 50 mil']]}
   ];
   var resp={}, passo=0;
   var box=document.getElementById('qz'), body=document.getElementById('qz-body'), bar=document.getElementById('qz-bar');
   function lista(){ return PERGUNTAS.filter(function(p){ return !p.se || p.se(resp); }); }
 
   function track(ev,extra){ try{ if(window.fbq) fbq('trackCustom',ev,Object.assign({},resp,extra||{})); }catch(e){} }
-  function semPerfil(){
-    var poucoFaturamento = resp.vende==='nao' || resp.faturamento==='ate10';
-    return poucoFaturamento && resp.estoque==='ate5';
+  // Grupos: A = Método Real · B = não vende, 10 mil+ de estoque · C = já vende · D = prioridade (Real Elite)
+  function grupo(){
+    var est=resp.estoque, fat=resp.faturamento;
+    if(est==='50mais' || fat==='50a100' || fat==='100mais') return 'D';
+    if(resp.vende==='nao') return (est==='ate5'||est==='5a10') ? 'A' : 'B';
+    if(fat==='ate10' && est==='ate5') return 'A';
+    return 'C';
   }
+  function naoPrecifica(){ return resp.precifica==='nao' || resp.precifica==='maisoumenos'; }
+  var CALC='<a class="qz-calc" href="https://landing.calculadorarealecom.com.br/?utm_source=landing-mentoria&utm_medium=qualificacao" target="_blank" rel="noopener"><b>Calculadora REAL</b><span>Você disse que ainda não tem certeza do preço certo. A Calculadora mostra a margem real de cada produto, com todas as taxas do Mercado Livre.</span><i>Conhecer a Calculadora →</i></a>';
   function render(){
     var L=lista(), p=L[passo];
     bar.style.width=(passo/L.length*100)+'%';
@@ -1507,30 +1517,40 @@ try{
   }
   function formulario(){
     bar.style.width='100%';
+    resp.grupo=grupo();
     var qs=Object.keys(resp).map(function(k){ return k+'='+encodeURIComponent(resp[k]); }).join('&');
     var utm=location.search.replace(/^\?/,'');
     body.innerHTML='<div class="qz-step">Último passo</div><div class="qz-q">Perfeito! Deixe seu nome e WhatsApp para o time falar com você.</div>'
       +'<div class="qz-form"><iframe title="Diagnóstico realecom" src="https://tally.so/embed/VLXOyE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&'+qs+(utm?'&'+utm:'')+'"></iframe></div>';
     track('QualificacaoOK');
+    if(resp.grupo!=='A') track('LeadQualificado');
+    if(resp.grupo==='D') track('LeadPrioridade');
   }
   function metodoReal(){
     bar.style.width='100%';
     body.innerHTML='<div class="qz-mr"><div class="qz-step">O melhor próximo passo</div><div class="qz-q">Para o seu momento, o caminho certo é o Método Real.</div>'
       +'<p>É o passo a passo para tirar a loja do papel e começar a vender no Mercado Livre com método, no seu ritmo. Quando a operação crescer, a mentoria é o próximo degrau.</p>'
       +'<a class="btn-main" href="https://landing.realecom.app/metodo-real/?utm_source=landing-mentoria&utm_medium=qualificacao">Conhecer o Método Real <span>→</span></a>'
+      +(naoPrecifica()?CALC:'')
       +'<button type="button" class="qz-alt">Mesmo assim, quero falar com o time</button></div>';
     body.querySelector('.qz-alt').onclick=function(){ track('QualificacaoInsistiu'); formulario(); };
     track('QualificacaoMetodoReal');
   }
-  function fim(){ if(semPerfil()) metodoReal(); else formulario(); }
+  function fim(){ resp.grupo=grupo(); if(resp.grupo==='A') metodoReal(); else formulario(); }
 
+  function enviado(){
+    bar.style.width='100%';
+    body.innerHTML='<div class="qz-mr"><div class="qz-step">Tudo certo</div><div class="qz-q">Recebemos! O time realecom vai falar com você no WhatsApp em até 24h.</div>'
+      +'<p>Fique de olho nas mensagens. Enquanto isso, separe as suas dúvidas para aproveitar bem o Diagnóstico.</p>'
+      +(naoPrecifica()?CALC:'')+'</div>';
+  }
   window.qzOpen=function(){ resp={}; passo=0; render(); box.classList.add('on'); document.body.style.overflow='hidden'; track('QualificacaoInicio'); };
   window.qzClose=function(){ box.classList.remove('on'); document.body.style.overflow=''; };
   box.addEventListener('click',function(e){ if(e.target===box) qzClose(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') qzClose(); });
   // Tally avisa quando o formulário é enviado
   window.addEventListener('message',function(e){
-    try{ var d=typeof e.data==='string'?JSON.parse(e.data):e.data; if(d && d.event==='Tally.FormSubmitted') track('QualificacaoEnviada'); }catch(_){}
+    try{ var d=typeof e.data==='string'?JSON.parse(e.data):e.data; if(d && d.event==='Tally.FormSubmitted'){ track('QualificacaoEnviada'); enviado(); } }catch(_){}
   });
 })();
 </script>
