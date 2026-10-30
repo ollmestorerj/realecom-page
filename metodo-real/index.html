@@ -221,6 +221,12 @@ section{padding:64px 0}
 
 /* ── OFERTA ── */
 .offer{margin-top:28px;border-radius:20px;padding:26px 20px;background:linear-gradient(160deg,#1A1424 0%,#110F17 60%);border:1px solid rgba(124,58,237,.35);box-shadow:0 30px 80px -40px rgba(124,58,237,.6)}
+.bf-banner{margin:-26px -20px 22px;padding:18px 20px 16px;border-radius:19px 19px 0 0;background:repeating-linear-gradient(135deg,#000 0 14px,#0d0d0d 14px 28px);border-bottom:3px solid var(--orange);text-align:center;position:relative;overflow:hidden}
+.bf-banner::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(249,115,22,.35),transparent 65%);pointer-events:none}
+.bf-k{position:relative;display:block;font-size:11px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--orange)}
+.bf-t{position:relative;display:block;font-size:34px;font-weight:900;letter-spacing:-.5px;line-height:1.05;color:#fff;margin-top:4px}
+.bf-t em{font-style:normal;color:var(--orange)}
+.price .price-l.bf{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
 .offer-name{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--purple-l)}
 .offer-t{font-size:22px;font-weight:800;color:#fff;margin-top:6px;letter-spacing:-.4px}
 .offer ul{list-style:none;margin:20px 0;display:flex;flex-direction:column;gap:11px}
@@ -282,6 +288,8 @@ html.locked .gate-msg svg{width:16px;height:16px;stroke:var(--orange)}
   .arrive{grid-template-columns:1fr 1fr}
   .fit{grid-template-columns:1fr 1fr}
   .offer{padding:34px 32px}
+  .bf-banner{margin:-34px -32px 26px;padding:22px 32px 20px}
+  .bf-t{font-size:44px}
   .rcards{grid-template-columns:1fr 1fr}
   .dream{grid-template-columns:repeat(3,1fr)}
   .check{grid-template-columns:1fr 1fr}
@@ -519,7 +527,7 @@ if(window.MR_REVELAR_EM>0&&!seen&&!/[?&]ver=1(&|$)/.test(location.search))docume
       <h2>Comece hoje.</h2>
     </div>
     <div class="offer">
-      <div class="limited">Oferta por tempo limitado</div>
+      <div class="bf-banner"><span class="bf-k">Oferta especial realecom</span><span class="bf-t">BLACK <em>FRIDAY</em></span></div>
       <div class="offer-name">realecom</div>
       <div class="offer-t">Método Real</div>
       <ul>
@@ -532,11 +540,11 @@ if(window.MR_REVELAR_EM>0&&!seen&&!/[?&]ver=1(&|$)/.test(location.search))docume
         <li>Empresa estrategicamente posicionada pra vender em SP</li>
       </ul>
       <div class="price">
-        <div class="price-l">Condição especial</div>
+        <div class="price-l bf">Preço de Black Friday</div>
         <div class="price-v"><small>12x</small>R$ 29,89</div>
       </div>
       <div class="cd-box">
-        <div class="cd-lbl">Essa condição expira em</div>
+        <div class="cd-lbl">Expira em</div>
         <div class="cd-digits"><div class="cd-unit"><b class="cd-m">10</b><small>min</small></div><span class="cd-sep">:</span><div class="cd-unit"><b class="cd-s">00</b><small>seg</small></div></div>
       </div>
       
