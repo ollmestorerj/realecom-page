@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prep Box — Prep center para quem vende online</title>
+<meta name="description" content="A Prep Box recebe, armazena, prepara pro Full e despacha os pedidos da sua loja no Mercado Livre e na Amazon. Você vende, a gente envia.">
+<meta property="og:title" content="Prep Box — Você vende. A gente prepara e despacha.">
+<meta property="og:description" content="Recebimento, armazenagem, preparação, despacho diário e endereço fiscal para quem vende no Mercado Livre e na Amazon.">
+<link rel="icon" type="image/png" href="assets/icone.png">
+<meta property="og:image" content="assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111111; --ink-2:#3F3F3A; --muted:#5E5E57; --bg:#FAFAF7; --card:#FFFFFF; --line:#E7E6DF;
+  --yellow:#FFC400; --yellow-soft:#FFF4C7;
+  --ml-yellow:#FFE600; --ml-blue:#2D3277; --amz-dark:#232F3E; --amz-orange:#FF9900;
+  --r:18px; --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:2px solid var(--ink);transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#2a2a2a}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:#fff}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(250,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo-hdr{height:56px;margin-left:-14px;width:auto;display:block}
+nav{display:flex;align-items:center;gap:28px}
+nav a.lnk{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2)}
+nav a.lnk:hover{color:var(--ink)}
+.hdr .btn{min-height:44px;padding:0 18px;font-size:15px}
+@media (max-width:820px){nav a.lnk{display:none}}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6.2vw,76px);margin:18px 0 22px}
+.hero h1 mark{background:linear-gradient(transparent 58%, var(--yellow) 58%);color:inherit;padding:0 .06em}
+.hero .lead{font-size:clamp(18px,2vw,20px);color:var(--ink-2);max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tag{font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.order-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 48px -28px rgba(0,0,0,.25)}
+.path-start,.path-end{display:flex;gap:12px;align-items:flex-start}
+.path-start b,.path-end b{display:block;font-weight:600;font-size:16px}
+.path-start small,.path-end small{font-size:14px;color:var(--muted)}
+.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 14px 13px;padding-left:15px;border-left:2px solid var(--line)}
+.branch{background:#F4F4EF;border-radius:14px;padding:12px 12px 12px 14px}
+.branch-full{background:var(--yellow-soft)}
+.branch-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#fff;border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.branch-full .branch-tag{background:var(--ink);color:var(--yellow)}
+.branch ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.branch li{font-size:14px;line-height:1.35;color:var(--ink-2);padding-left:14px;position:relative}
+.branch li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--ink)}
+@media (max-width:420px){.branches{grid-template-columns:1fr}}
+.order-top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.hero-icon{width:56px;height:56px;flex:none}
+.order-top b{display:block;font-family:'Space Grotesk',sans-serif;font-size:19px}
+.order-top span{font-size:14px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;position:relative}
+.steps li{display:flex;gap:14px;align-items:flex-start;padding:10px 0;position:relative}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:40px;bottom:-6px;width:2px;background:var(--line)}
+.dot{width:28px;height:28px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--yellow);color:var(--ink)}
+.dot svg{width:15px;height:15px}
+.dot.now{background:var(--ink);color:#fff}
+.steps b{display:block;font-weight:600;font-size:16px}
+.steps small{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding:48px 0 64px}}
+
+/* pain strip */
+.strip{background:var(--ink);color:#fff;padding:22px 0}
+.strip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px}
+.strip-row span{display:inline-flex;align-items:center;gap:10px}
+.strip-row svg{width:18px;height:18px;color:var(--yellow)}
+
+/* sections */
+section.block{padding:96px 0}
+.head{max-width:680px;margin-bottom:48px}
+.head h2{font-size:clamp(32px,4.4vw,48px);margin:14px 0 14px}
+.head p{color:var(--ink-2);font-size:18px}
+
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.svc .ic{width:48px;height:48px;border-radius:14px;background:var(--yellow-soft);display:grid;place-items:center;margin-bottom:20px;color:var(--ink)}
+.svc .ic svg{width:24px;height:24px}
+.svc h3{font-size:22px;margin-bottom:10px}
+.svc p{color:var(--ink-2);font-size:16px}
+@media (max-width:900px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.services{grid-template-columns:1fr}}
+
+/* full feature */
+.tag-full{background:var(--ink);color:var(--yellow);border-color:var(--ink);font-weight:700}
+.full-feature{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:var(--ink);color:#fff;border-radius:24px;padding:44px;margin-bottom:20px}
+.ff-badge{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--yellow);color:var(--ink);padding:6px 12px;border-radius:999px}
+.full-feature h3{font-size:clamp(28px,3.4vw,40px);margin:18px 0 14px}
+.full-feature p{color:#D4D4CC;font-size:17px}
+.full-feature .ff-why{margin-top:16px;padding-top:16px;border-top:1px solid #333}
+.full-feature .ff-why b{color:var(--yellow)}
+.ff-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:f}
+.ff-list li{display:flex;flex-direction:column;background:#1E1E1E;border-radius:14px;padding:14px 16px 14px 60px;position:relative}
+.ff-list li::before{counter-increment:f;content:counter(f);position:absolute;left:16px;top:50%;margin-top:-16px;width:32px;height:32px;border-radius:10px;background:var(--yellow);color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:700;display:grid;place-items:center}
+.ff-list b{font-family:'Space Grotesk',sans-serif;font-size:18px}
+.ff-list span{color:#BDBDB4;font-size:15px}
+@media (max-width:900px){.full-feature{grid-template-columns:1fr;padding:28px}}
+
+.opt{display:inline-block;vertical-align:middle;margin-left:6px;font-family:Inter,sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.pick{margin-top:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:center;background:var(--yellow-soft);border-radius:24px;padding:36px}
+.pick-head h3{font-size:clamp(26px,3vw,34px);margin-bottom:10px}
+.pick-head p{color:var(--ink-2)}
+.pick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pick-card{background:#fff;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.pick-card b{font-family:'Space Grotesk',sans-serif;font-size:18px}
+.pick-card span{font-size:15px;color:var(--ink-2);line-height:1.5}
+@media (max-width:980px){.pick{grid-template-columns:1fr;padding:28px}}
+@media (max-width:640px){.pick-grid{grid-template-columns:1fr}}
+
+/* how */
+.how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.how-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.how-step{position:relative;padding-top:64px}
+.how-step::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:48px;height:48px;border-radius:14px;background:var(--ink);color:var(--yellow);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;display:grid;place-items:center}
+.how-step h3{font-size:21px;margin-bottom:8px}
+.how-step p{color:var(--ink-2);font-size:16px}
+@media (max-width:900px){.how-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.how-grid{grid-template-columns:1fr}}
+
+/* marketplaces */
+.mk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.mk{border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:24px}
+.mk-ml{background:var(--ml-yellow);color:var(--ml-blue)}
+.mk-amz{background:#fff;color:var(--amz-dark);border:2px solid var(--amz-dark)}
+.mk .logo-ml,.mk .logo-amz{height:64px;margin-left:-14px;width:auto;align-self:flex-start}
+.mk h3{font-size:28px}
+.mk ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.mk li{display:flex;gap:12px;font-size:16px;line-height:1.5}
+.mk li svg{width:22px;height:22px;flex:none;margin-top:1px}
+.mk-ml li svg{color:var(--ml-blue)}
+.mk-amz li svg{color:#C26E00}
+.mk-amz h3 .acc{box-shadow:inset 0 -.32em 0 var(--amz-orange)}
+@media (max-width:820px){.mk-grid{grid-template-columns:1fr}.mk{padding:28px}}
+
+/* faq */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:6px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:20px}
+summary::-webkit-details-marker{display:none}
+summary .pm{width:28px;height:28px;flex:none;border-radius:50%;background:var(--yellow-soft);display:grid;place-items:center;transition:transform .2s}
+details[open] summary .pm{transform:rotate(45deg)}
+details p{color:var(--ink-2);padding:0 44px 20px 0}
+
+/* final cta */
+.final{background:var(--ink);color:#fff;border-radius:32px;padding:64px 40px;text-align:center;margin:0 24px}
+.final h2{font-size:clamp(32px,4.6vw,52px);margin-bottom:16px}
+.final h2 span{color:var(--yellow)}
+.final p{color:#D4D4CC;font-size:18px;max-width:560px;margin:0 auto 32px}
+.final .btn{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.final .btn:hover{background:#FFD23F}
+.final small{display:block;margin-top:16px;color:#A9A99F;font-size:14px}
+
+footer{padding:56px 0 40px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;color:var(--muted);font-size:14px}
+.logo-foot{height:44px;width:auto;display:block}
+:focus-visible{outline:3px solid #2F6BFF;outline-offset:3px;border-radius:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hdr">
+    <a href="#topo" aria-label="Prep Box, início"><svg xmlns="http://www.w3.org/2000/svg" class="logo-hdr" role="img" aria-label="Prep Box" viewBox="0 0 921 320"><g fill="#111111"><path d="M75.259912109375 256.0V117.499951171875H95.440234375V131.5298095703125H98.620263671875Q102.30024414062501 124.95986328125 110.09520263671875 119.8299072265625Q117.8901611328125 114.699951171875 132.20009765625002 114.699951171875Q144.55007324218752 114.699951171875 154.89006347656252 120.6699462890625Q165.2300537109375 126.63994140624999 171.46505126953127 137.96994628906248Q177.700048828125 149.299951171875 177.700048828125 165.2899658203125V168.2099853515625Q177.700048828125 184.1300048828125 171.500048828125 195.49500732421876Q165.300048828125 206.860009765625 154.96005859375 212.8300048828125Q144.620068359375 218.8 132.20009765625002 218.8Q122.64013671875 218.8 116.0501708984375 216.42001953125Q109.460205078125 214.0400390625 105.4102294921875 210.28507080078126Q101.36025390625 206.5301025390625 99.020263671875 202.64013671875H95.840234375V256.0ZM126.27998046875 200.7197265625Q139.75986328125 200.7197265625 148.3697998046875 192.13480224609376Q156.979736328125 183.5498779296875 156.979736328125 167.67998046875V165.819970703125Q156.979736328125 149.9500732421875 148.30479736328124 141.36514892578126Q139.6298583984375 132.780224609375 126.27998046875 132.780224609375Q113.00009765625 132.780224609375 104.2901611328125 141.36514892578126Q95.580224609375 149.9500732421875 95.580224609375 165.819970703125V167.67998046875Q95.580224609375 183.5498779296875 104.2901611328125 192.13480224609376Q113.00009765625 200.7197265625 126.27998046875 200.7197265625Z"/><path d="M197.459912109375 216.0V117.499951171875H217.64023437500003V129.0499267578125H220.820263671875Q223.23024902343752 122.83994140624999 228.47023925781252 119.96994628906249Q233.71022949218752 117.09995117187499 241.56015625000003 117.09995117187499H253.3501708984375V135.580224609375H240.81018066406253Q230.72021484375003 135.580224609375 224.38022460937503 141.06519775390626Q218.040234375 146.5501708984375 218.040234375 158.060107421875V216.0Z"/><path d="M313.919921875 218.8Q299.0499267578125 218.8 287.819921875 212.5Q276.5899169921875 206.2 270.3249145507813 194.73499755859376Q264.05991210937503 183.2699951171875 264.05991210937503 167.9499755859375V165.5499755859375Q264.05991210937503 150.1599609375 270.259912109375 138.72995605468748Q276.459912109375 127.299951171875 287.5549194335938 120.999951171875Q298.6499267578125 114.699951171875 313.1699462890625 114.699951171875Q327.41997070312505 114.699951171875 338.1149780273438 120.91997070312499Q348.80998535156255 127.13999023437499 354.80998535156255 138.360009765625Q360.80998535156255 149.580029296875 360.80998535156255 164.6400390625V172.4700927734375H284.90024414062503Q285.3702392578125 185.4698974609375 293.72515869140625 193.09481201171874Q302.080078125 200.7197265625 314.43994140625 200.7197265625Q326.0898681640625 200.7197265625 331.9648071289063 195.559765625Q337.83974609375 190.3998046875 340.9297119140625 183.6098876953125L358.09995117187503 192.3100341796875Q355.22995605468753 198.0 349.9299560546875 204.1699951171875Q344.6299560546875 210.339990234375 335.9699462890625 214.5699951171875Q327.3099365234375 218.8 313.919921875 218.8ZM285.100244140625 156.6098876953125H339.899658203125Q339.09965820312505 145.4900634765625 331.8447387695313 139.13514404296876Q324.58981933593753 132.780224609375 313.03994140625 132.780224609375Q301.300048828125 132.780224609375 294.04013671875 139.13514404296876Q286.780224609375 145.4900634765625 285.100244140625 156.6098876953125Z"/><path d="M379.65991210937506 256.0V117.499951171875H399.840234375V131.5298095703125H403.02026367187506Q406.70024414062505 124.95986328125 414.4952026367188 119.8299072265625Q422.29016113281256 114.699951171875 436.60009765625006 114.699951171875Q448.95007324218756 114.699951171875 459.2900634765625 120.6699462890625Q469.63005371093755 126.63994140624999 475.8650512695313 137.96994628906248Q482.10004882812507 149.299951171875 482.10004882812507 165.2899658203125V168.2099853515625Q482.10004882812507 184.1300048828125 475.900048828125 195.49500732421876Q469.70004882812503 206.860009765625 459.36005859375007 212.8300048828125Q449.02006835937505 218.8 436.60009765625006 218.8Q427.04013671875003 218.8 420.45017089843753 216.42001953125Q413.86020507812503 214.0400390625 409.81022949218755 210.28507080078126Q405.76025390625006 206.5301025390625 403.42026367187503 202.64013671875H400.24023437500006V256.0ZM430.67998046875005 200.7197265625Q444.15986328125007 200.7197265625 452.7697998046875 192.13480224609376Q461.37973632812503 183.5498779296875 461.37973632812503 167.67998046875V165.819970703125Q461.37973632812503 149.9500732421875 452.7047973632813 141.36514892578126Q444.02985839843757 132.780224609375 430.67998046875005 132.780224609375Q417.40009765625007 132.780224609375 408.6901611328126 141.36514892578126Q399.98022460937506 149.9500732421875 399.98022460937506 165.819970703125V167.67998046875Q399.98022460937506 183.5498779296875 408.6901611328126 192.13480224609376Q417.40009765625007 200.7197265625 430.67998046875005 200.7197265625Z"/><path d="M560.2 218.8Q546.8000000000001 218.8 539.6 214.2Q532.4 209.6 529.0 204.0H525.4V216.0H500.6V76.0H525.8000000000001V128.2H529.4Q531.6 124.6 535.3 121.39999999999999Q539.0 118.19999999999999 545.1 116.1Q551.2 114.0 560.2 114.0Q572.2 114.0 582.4000000000001 119.9Q592.6 125.8 598.8 137.2Q605.0 148.6 605.0 164.8V168.0Q605.0 184.2 598.8 195.6Q592.6 207.0 582.4000000000001 212.9Q572.2 218.8 560.2 218.8ZM552.6 196.8Q564.2 196.8 572.0 189.3Q579.8000000000001 181.8 579.8000000000001 167.4V165.4Q579.8000000000001 151.0 572.1000000000001 143.5Q564.4000000000001 136.0 552.6 136.0Q541.0 136.0 533.2 143.5Q525.4 151.0 525.4 165.4V167.4Q525.4 181.8 533.2 189.3Q541.0 196.8 552.6 196.8Z"/><path d="M754.7600000000001 216.0 790.7600000000001 166.0 755.1600000000001 116.8H784.36L806.96 149.8H810.5600000000001L833.1600000000001 116.8H862.3600000000001L826.7600000000001 166.0L862.7600000000001 216.0H833.1600000000001L810.5600000000001 182.6H806.96L784.36 216.0Z"/></g><g transform="translate(606.20,77.76) scale(1.2800)">
+<defs><clipPath id="logo-hdr-cprincipaltransparente"><path d="M57.2 8.6 L87.8 23.9 Q95 27.5 95 35.5 L95 74.5 Q95 82.5 87.8 86.1 L57.2 101.4 Q50 105 42.8 101.4 L12.2 86.1 Q5 82.5 5 74.5 L5 35.5 Q5 27.5 12.2 23.9 L42.8 8.6 Q50 5 57.2 8.6 Z"/></clipPath></defs>
+<g transform="translate(10,5)"><g clip-path="url(#logo-hdr-cprincipaltransparente)">
+<polygon points="50,5 95,27.5 50,50 5,27.5" fill="#FFD84D"/>
+<polygon points="5,27.5 50,50 50,105 5,82.5" fill="#FFC400"/>
+<polygon points="50,50 95,27.5 95,82.5 50,105" fill="#E0A800"/>
+<polygon points="69.5,14.75 75.5,17.75 30.5,40.25 24.5,37.25" fill="#111111"/>
+<polygon points="24.5,37.25 30.5,40.25 30.5,95.25 24.5,92.25" fill="#111111"/>
+</g></g>
+<path d="M72 63 L72 105 L82 95 L90 111 L97 108 L89 92 L103 92 Z" fill="#111111" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+</g></svg></a>
+    <nav aria-label="Principal">
+      <a class="lnk" href="#servicos">Serviços</a>
+      <a class="lnk" href="#como-funciona">Como funciona</a>
+      <a class="lnk" href="#marketplaces">Mercado Livre e Amazon</a>
+      <a class="lnk" href="#duvidas">Dúvidas</a>
+      <a class="btn btn-primary wa" href="#contato">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Prep center para quem vende online</span>
+        <h1>Você vende. A gente <mark>prepara e despacha.</mark></h1>
+        <p class="lead">A Prep Box cuida da logística da sua loja no Mercado Livre e na Amazon: recebe sua mercadoria, guarda, prepara seu estoque pro Full e despacha seus pedidos todos os dias. Você fica livre pra fazer o que dá dinheiro: vender.</p>
+        <div class="ctas">
+          <a class="btn btn-primary wa" href="#contato">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#servicos">Ver o que a gente faz</a>
+        </div>
+        <div class="tags" aria-label="Modalidades atendidas">
+          <span class="tag">Full</span><span class="tag">Flex</span><span class="tag">Coleta</span><span class="tag">Agência</span><span class="tag">Correios</span><span class="tag">Endereço fiscal</span>
+        </div>
+      </div>
+
+      <div class="order-card" aria-label="O caminho do seu estoque até o seu cliente">
+        <div class="order-top">
+          <svg xmlns="http://www.w3.org/2000/svg" class="hero-icon" role="img" aria-label="Ícone Prep Box" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#111111"/><g transform="translate(64.00,64.00) scale(3.2000)">
+<defs><clipPath id="hero-icon-cprincipalicon"><path d="M57.2 8.6 L87.8 23.9 Q95 27.5 95 35.5 L95 74.5 Q95 82.5 87.8 86.1 L57.2 101.4 Q50 105 42.8 101.4 L12.2 86.1 Q5 82.5 5 74.5 L5 35.5 Q5 27.5 12.2 23.9 L42.8 8.6 Q50 5 57.2 8.6 Z"/></clipPath></defs>
+<g transform="translate(10,5)"><g clip-path="url(#hero-icon-cprincipalicon)">
+<polygon points="50,5 95,27.5 50,50 5,27.5" fill="#FFD84D"/>
+<polygon points="5,27.5 50,50 50,105 5,82.5" fill="#FFC400"/>
+<polygon points="50,50 95,27.5 95,82.5 50,105" fill="#E0A800"/>
+<polygon points="69.5,14.75 75.5,17.75 30.5,40.25 24.5,37.25" fill="#111111"/>
+<polygon points="24.5,37.25 30.5,40.25 30.5,95.25 24.5,92.25" fill="#111111"/>
+</g></g>
+<path d="M72 63 L72 105 L82 95 L90 111 L97 108 L89 92 L103 92 Z" fill="#FFFFFF" stroke="#111111" stroke-width="4" stroke-linejoin="round"/>
+</g></svg>
+          <div><b>O caminho até o seu cliente</b><span>Pelo Full ou direto do nosso galpão</span></div>
+        </div>
+        <div class="path-start"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Mercadoria recebida, contada e conferida</b><small>Cadastrada no estoque da sua loja</small></div></div>
+        <div class="branches">
+          <div class="branch branch-full">
+            <span class="branch-tag">Full</span>
+            <ul>
+              <li>Etiquetado no padrão do Full</li>
+              <li>Enviado ou coletado pro Mercado Livre</li>
+              <li>O Mercado Livre guarda e entrega</li>
+            </ul>
+          </div>
+          <div class="branch">
+            <span class="branch-tag">Envio direto</span>
+            <ul>
+              <li>Venda caiu, etiqueta puxada</li>
+              <li>Separado, embalado e fotografado</li>
+              <li>Agência, Flex, Coleta ou Correios</li>
+            </ul>
+          </div>
+        </div>
+        <div class="path-end"><span class="dot now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><div><b>Chega no seu cliente</b><small>E você acompanha tudo pelo WhatsApp</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip-row">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Sem estoque em casa</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Sem fila na agência</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Sem madrugada embalando pedido</span>
+    </div>
+  </div>
+
+  <section class="block" id="servicos">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">O que a gente faz</span>
+        <h2>Toda a parte física da sua loja, num lugar só.</h2>
+        <p>Do fornecedor até o comprador (ou até o Full): a Prep Box assume o trabalho braçal pra sua operação crescer sem você precisar de galpão, funcionário ou tempo.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+          <h3>Recebimento</h3>
+          <p>Recebemos a mercadoria do seu fornecedor ou da sua importação, conferimos e cadastramos tudo no estoque da sua loja.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>Armazenagem</h3>
+          <p>Seu estoque fica separado, com código próprio pra cada produto da sua loja. Nada se mistura com o de outro cliente.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+          <h3>Preparação para o Full</h3>
+          <p>Contamos, conferimos e etiquetamos seu estoque no padrão do Full e enviamos (ou liberamos pra coleta) para o centro do Mercado Livre.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></div>
+          <h3>Despacho diário</h3>
+          <p>Pedidos separados por modalidade (Flex, Coleta, Agência e Correios), embalados (inclusive kits) e enviados no prazo, todo dia.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Endereço fiscal</h3>
+          <p>Abra seu CNPJ e sua inscrição estadual no endereço do nosso galpão e opere com estrutura de empresa desde o primeiro dia.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 14l3-3 3 2 4-5"/><path d="M8 21h8"/></svg></div>
+          <h3>Acompanhamento</h3>
+          <p>Painel com seus envios, histórico e fatura. Avisos no seu grupo de WhatsApp a cada remessa pro Full e a cada pedido despachado.</p>
+        </article>
+      </div>
+      <div class="pick">
+        <div class="pick-head">
+          <h3>Pague só pelo que você usa.</h3>
+          <p>Escolha o formato que faz sentido pra sua loja hoje. Dá pra mudar quando ela crescer.</p>
+        </div>
+        <div class="pick-grid">
+          <div class="pick-card"><b>Só etiquetagem Full</b><span>A gente conta, confere, etiqueta e manda seu estoque pro Full.</span></div>
+          <div class="pick-card"><b>Pacote completo</b><span>Full, envios por Agência, Flex, Coleta e Correios, armazenagem e endereço fiscal.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block how" id="como-funciona">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Em quatro passos sua loja sai de casa.</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step"><h3>Conversa rápida</h3><p>Entendemos seus produtos, seu volume e como você envia hoje: Full, Flex, Coleta, Agência ou Correios.</p></div>
+        <div class="how-step"><h3>Envie sua mercadoria</h3><p>Seu fornecedor entrega direto na Prep Box. A gente confere e cadastra tudo.</p></div>
+        <div class="how-step"><h3>Conecte sua conta</h3><p>Com a sua conta conectada, puxamos as etiquetas das suas vendas automaticamente.</p></div>
+        <div class="how-step"><h3>Você vende, a gente envia</h3><p>Pedido despachado no prazo e estoque preparado pro Full. Você acompanha tudo pelo celular.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="marketplaces">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Onde você vende</span>
+        <h2>Feito pra quem vende no Mercado Livre e na Amazon.</h2>
+        <p>Nos marketplaces, quem envia rápido e no prazo vende mais. É exatamente essa parte que a gente resolve.</p>
+      </div>
+      <div class="mk-grid">
+        <article class="mk mk-ml">
+          <svg xmlns="http://www.w3.org/2000/svg" class="logo-ml" role="img" aria-label="Prep Box, versão Mercado Livre" viewBox="0 0 921 320"><g fill="#2D3277"><path d="M75.259912109375 256.0V117.499951171875H95.440234375V131.5298095703125H98.620263671875Q102.30024414062501 124.95986328125 110.09520263671875 119.8299072265625Q117.8901611328125 114.699951171875 132.20009765625002 114.699951171875Q144.55007324218752 114.699951171875 154.89006347656252 120.6699462890625Q165.2300537109375 126.63994140624999 171.46505126953127 137.96994628906248Q177.700048828125 149.299951171875 177.700048828125 165.2899658203125V168.2099853515625Q177.700048828125 184.1300048828125 171.500048828125 195.49500732421876Q165.300048828125 206.860009765625 154.96005859375 212.8300048828125Q144.620068359375 218.8 132.20009765625002 218.8Q122.64013671875 218.8 116.0501708984375 216.42001953125Q109.460205078125 214.0400390625 105.4102294921875 210.28507080078126Q101.36025390625 206.5301025390625 99.020263671875 202.64013671875H95.840234375V256.0ZM126.27998046875 200.7197265625Q139.75986328125 200.7197265625 148.3697998046875 192.13480224609376Q156.979736328125 183.5498779296875 156.979736328125 167.67998046875V165.819970703125Q156.979736328125 149.9500732421875 148.30479736328124 141.36514892578126Q139.6298583984375 132.780224609375 126.27998046875 132.780224609375Q113.00009765625 132.780224609375 104.2901611328125 141.36514892578126Q95.580224609375 149.9500732421875 95.580224609375 165.819970703125V167.67998046875Q95.580224609375 183.5498779296875 104.2901611328125 192.13480224609376Q113.00009765625 200.7197265625 126.27998046875 200.7197265625Z"/><path d="M197.459912109375 216.0V117.499951171875H217.64023437500003V129.0499267578125H220.820263671875Q223.23024902343752 122.83994140624999 228.47023925781252 119.96994628906249Q233.71022949218752 117.09995117187499 241.56015625000003 117.09995117187499H253.3501708984375V135.580224609375H240.81018066406253Q230.72021484375003 135.580224609375 224.38022460937503 141.06519775390626Q218.040234375 146.5501708984375 218.040234375 158.060107421875V216.0Z"/><path d="M313.919921875 218.8Q299.0499267578125 218.8 287.819921875 212.5Q276.5899169921875 206.2 270.3249145507813 194.73499755859376Q264.05991210937503 183.2699951171875 264.05991210937503 167.9499755859375V165.5499755859375Q264.05991210937503 150.1599609375 270.259912109375 138.72995605468748Q276.459912109375 127.299951171875 287.5549194335938 120.999951171875Q298.6499267578125 114.699951171875 313.1699462890625 114.699951171875Q327.41997070312505 114.699951171875 338.1149780273438 120.91997070312499Q348.80998535156255 127.13999023437499 354.80998535156255 138.360009765625Q360.80998535156255 149.580029296875 360.80998535156255 164.6400390625V172.4700927734375H284.90024414062503Q285.3702392578125 185.4698974609375 293.72515869140625 193.09481201171874Q302.080078125 200.7197265625 314.43994140625 200.7197265625Q326.0898681640625 200.7197265625 331.9648071289063 195.559765625Q337.83974609375 190.3998046875 340.9297119140625 183.6098876953125L358.09995117187503 192.3100341796875Q355.22995605468753 198.0 349.9299560546875 204.1699951171875Q344.6299560546875 210.339990234375 335.9699462890625 214.5699951171875Q327.3099365234375 218.8 313.919921875 218.8ZM285.100244140625 156.6098876953125H339.899658203125Q339.09965820312505 145.4900634765625 331.8447387695313 139.13514404296876Q324.58981933593753 132.780224609375 313.03994140625 132.780224609375Q301.300048828125 132.780224609375 294.04013671875 139.13514404296876Q286.780224609375 145.4900634765625 285.100244140625 156.6098876953125Z"/><path d="M379.65991210937506 256.0V117.499951171875H399.840234375V131.5298095703125H403.02026367187506Q406.70024414062505 124.95986328125 414.4952026367188 119.8299072265625Q422.29016113281256 114.699951171875 436.60009765625006 114.699951171875Q448.95007324218756 114.699951171875 459.2900634765625 120.6699462890625Q469.63005371093755 126.63994140624999 475.8650512695313 137.96994628906248Q482.10004882812507 149.299951171875 482.10004882812507 165.2899658203125V168.2099853515625Q482.10004882812507 184.1300048828125 475.900048828125 195.49500732421876Q469.70004882812503 206.860009765625 459.36005859375007 212.8300048828125Q449.02006835937505 218.8 436.60009765625006 218.8Q427.04013671875003 218.8 420.45017089843753 216.42001953125Q413.86020507812503 214.0400390625 409.81022949218755 210.28507080078126Q405.76025390625006 206.5301025390625 403.42026367187503 202.64013671875H400.24023437500006V256.0ZM430.67998046875005 200.7197265625Q444.15986328125007 200.7197265625 452.7697998046875 192.13480224609376Q461.37973632812503 183.5498779296875 461.37973632812503 167.67998046875V165.819970703125Q461.37973632812503 149.9500732421875 452.7047973632813 141.36514892578126Q444.02985839843757 132.780224609375 430.67998046875005 132.780224609375Q417.40009765625007 132.780224609375 408.6901611328126 141.36514892578126Q399.98022460937506 149.9500732421875 399.98022460937506 165.819970703125V167.67998046875Q399.98022460937506 183.5498779296875 408.6901611328126 192.13480224609376Q417.40009765625007 200.7197265625 430.67998046875005 200.7197265625Z"/><path d="M560.2 218.8Q546.8000000000001 218.8 539.6 214.2Q532.4 209.6 529.0 204.0H525.4V216.0H500.6V76.0H525.8000000000001V128.2H529.4Q531.6 124.6 535.3 121.39999999999999Q539.0 118.19999999999999 545.1 116.1Q551.2 114.0 560.2 114.0Q572.2 114.0 582.4000000000001 119.9Q592.6 125.8 598.8 137.2Q605.0 148.6 605.0 164.8V168.0Q605.0 184.2 598.8 195.6Q592.6 207.0 582.4000000000001 212.9Q572.2 218.8 560.2 218.8ZM552.6 196.8Q564.2 196.8 572.0 189.3Q579.8000000000001 181.8 579.8000000000001 167.4V165.4Q579.8000000000001 151.0 572.1000000000001 143.5Q564.4000000000001 136.0 552.6 136.0Q541.0 136.0 533.2 143.5Q525.4 151.0 525.4 165.4V167.4Q525.4 181.8 533.2 189.3Q541.0 196.8 552.6 196.8Z"/><path d="M754.7600000000001 216.0 790.7600000000001 166.0 755.1600000000001 116.8H784.36L806.96 149.8H810.5600000000001L833.1600000000001 116.8H862.3600000000001L826.7600000000001 166.0L862.7600000000001 216.0H833.1600000000001L810.5600000000001 182.6H806.96L784.36 216.0Z"/></g><g transform="translate(606.20,77.76) scale(1.2800)">
+<defs><clipPath id="logo-ml-cmercadolivretransparente"><path d="M57.2 8.6 L87.8 23.9 Q95 27.5 95 35.5 L95 74.5 Q95 82.5 87.8 86.1 L57.2 101.4 Q50 105 42.8 101.4 L12.2 86.1 Q5 82.5 5 74.5 L5 35.5 Q5 27.5 12.2 23.9 L42.8 8.6 Q50 5 57.2 8.6 Z"/></clipPath></defs>
+<g transform="translate(10,5)"><g clip-path="url(#logo-ml-cmercadolivretransparente)">
+<polygon points="50,5 95,27.5 50,50 5,27.5" fill="#5C9DFF"/>
+<polygon points="5,27.5 50,50 50,105 5,82.5" fill="#3483FA"/>
+<polygon points="50,50 95,27.5 95,82.5 50,105" fill="#2059C9"/>
+<polygon points="69.5,14.75 75.5,17.75 30.5,40.25 24.5,37.25" fill="#FFFFFF"/>
+<polygon points="24.5,37.25 30.5,40.25 30.5,95.25 24.5,92.25" fill="#FFFFFF"/>
+</g></g>
+<path d="M72 63 L72 105 L82 95 L90 111 L97 108 L89 92 L103 92 Z" fill="#2D3277" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+</g></svg>
+          <h3>No Mercado Livre</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Seu estoque no Full sem dor de cabeça:</b> contagem, conferência e etiqueta certas evitam problema na entrada do centro de distribuição.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Anúncio mais competitivo:</b> no Full, seu produto ganha a entrega rápida do Mercado Livre, que pesa na decisão de compra.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Reputação protegida:</b> fora do Full, Flex e Coleta saem no prazo todo dia, sem atraso pesando no seu termômetro.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Kits do jeito certo:</b> o anúncio de 2 ou 3 unidades sai montado e dá baixa certa no estoque.</span></li>
+          </ul>
+        </article>
+        <article class="mk mk-amz">
+          <svg xmlns="http://www.w3.org/2000/svg" class="logo-amz" role="img" aria-label="Prep Box, versão Amazon" viewBox="0 0 921 320"><g fill="#232F3E"><path d="M75.259912109375 256.0V117.499951171875H95.440234375V131.5298095703125H98.620263671875Q102.30024414062501 124.95986328125 110.09520263671875 119.8299072265625Q117.8901611328125 114.699951171875 132.20009765625002 114.699951171875Q144.55007324218752 114.699951171875 154.89006347656252 120.6699462890625Q165.2300537109375 126.63994140624999 171.46505126953127 137.96994628906248Q177.700048828125 149.299951171875 177.700048828125 165.2899658203125V168.2099853515625Q177.700048828125 184.1300048828125 171.500048828125 195.49500732421876Q165.300048828125 206.860009765625 154.96005859375 212.8300048828125Q144.620068359375 218.8 132.20009765625002 218.8Q122.64013671875 218.8 116.0501708984375 216.42001953125Q109.460205078125 214.0400390625 105.4102294921875 210.28507080078126Q101.36025390625 206.5301025390625 99.020263671875 202.64013671875H95.840234375V256.0ZM126.27998046875 200.7197265625Q139.75986328125 200.7197265625 148.3697998046875 192.13480224609376Q156.979736328125 183.5498779296875 156.979736328125 167.67998046875V165.819970703125Q156.979736328125 149.9500732421875 148.30479736328124 141.36514892578126Q139.6298583984375 132.780224609375 126.27998046875 132.780224609375Q113.00009765625 132.780224609375 104.2901611328125 141.36514892578126Q95.580224609375 149.9500732421875 95.580224609375 165.819970703125V167.67998046875Q95.580224609375 183.5498779296875 104.2901611328125 192.13480224609376Q113.00009765625 200.7197265625 126.27998046875 200.7197265625Z"/><path d="M197.459912109375 216.0V117.499951171875H217.64023437500003V129.0499267578125H220.820263671875Q223.23024902343752 122.83994140624999 228.47023925781252 119.96994628906249Q233.71022949218752 117.09995117187499 241.56015625000003 117.09995117187499H253.3501708984375V135.580224609375H240.81018066406253Q230.72021484375003 135.580224609375 224.38022460937503 141.06519775390626Q218.040234375 146.5501708984375 218.040234375 158.060107421875V216.0Z"/><path d="M313.919921875 218.8Q299.0499267578125 218.8 287.819921875 212.5Q276.5899169921875 206.2 270.3249145507813 194.73499755859376Q264.05991210937503 183.2699951171875 264.05991210937503 167.9499755859375V165.5499755859375Q264.05991210937503 150.1599609375 270.259912109375 138.72995605468748Q276.459912109375 127.299951171875 287.5549194335938 120.999951171875Q298.6499267578125 114.699951171875 313.1699462890625 114.699951171875Q327.41997070312505 114.699951171875 338.1149780273438 120.91997070312499Q348.80998535156255 127.13999023437499 354.80998535156255 138.360009765625Q360.80998535156255 149.580029296875 360.80998535156255 164.6400390625V172.4700927734375H284.90024414062503Q285.3702392578125 185.4698974609375 293.72515869140625 193.09481201171874Q302.080078125 200.7197265625 314.43994140625 200.7197265625Q326.0898681640625 200.7197265625 331.9648071289063 195.559765625Q337.83974609375 190.3998046875 340.9297119140625 183.6098876953125L358.09995117187503 192.3100341796875Q355.22995605468753 198.0 349.9299560546875 204.1699951171875Q344.6299560546875 210.339990234375 335.9699462890625 214.5699951171875Q327.3099365234375 218.8 313.919921875 218.8ZM285.100244140625 156.6098876953125H339.899658203125Q339.09965820312505 145.4900634765625 331.8447387695313 139.13514404296876Q324.58981933593753 132.780224609375 313.03994140625 132.780224609375Q301.300048828125 132.780224609375 294.04013671875 139.13514404296876Q286.780224609375 145.4900634765625 285.100244140625 156.6098876953125Z"/><path d="M379.65991210937506 256.0V117.499951171875H399.840234375V131.5298095703125H403.02026367187506Q406.70024414062505 124.95986328125 414.4952026367188 119.8299072265625Q422.29016113281256 114.699951171875 436.60009765625006 114.699951171875Q448.95007324218756 114.699951171875 459.2900634765625 120.6699462890625Q469.63005371093755 126.63994140624999 475.8650512695313 137.96994628906248Q482.10004882812507 149.299951171875 482.10004882812507 165.2899658203125V168.2099853515625Q482.10004882812507 184.1300048828125 475.900048828125 195.49500732421876Q469.70004882812503 206.860009765625 459.36005859375007 212.8300048828125Q449.02006835937505 218.8 436.60009765625006 218.8Q427.04013671875003 218.8 420.45017089843753 216.42001953125Q413.86020507812503 214.0400390625 409.81022949218755 210.28507080078126Q405.76025390625006 206.5301025390625 403.42026367187503 202.64013671875H400.24023437500006V256.0ZM430.67998046875005 200.7197265625Q444.15986328125007 200.7197265625 452.7697998046875 192.13480224609376Q461.37973632812503 183.5498779296875 461.37973632812503 167.67998046875V165.819970703125Q461.37973632812503 149.9500732421875 452.7047973632813 141.36514892578126Q444.02985839843757 132.780224609375 430.67998046875005 132.780224609375Q417.40009765625007 132.780224609375 408.6901611328126 141.36514892578126Q399.98022460937506 149.9500732421875 399.98022460937506 165.819970703125V167.67998046875Q399.98022460937506 183.5498779296875 408.6901611328126 192.13480224609376Q417.40009765625007 200.7197265625 430.67998046875005 200.7197265625Z"/><path d="M560.2 218.8Q546.8000000000001 218.8 539.6 214.2Q532.4 209.6 529.0 204.0H525.4V216.0H500.6V76.0H525.8000000000001V128.2H529.4Q531.6 124.6 535.3 121.39999999999999Q539.0 118.19999999999999 545.1 116.1Q551.2 114.0 560.2 114.0Q572.2 114.0 582.4000000000001 119.9Q592.6 125.8 598.8 137.2Q605.0 148.6 605.0 164.8V168.0Q605.0 184.2 598.8 195.6Q592.6 207.0 582.4000000000001 212.9Q572.2 218.8 560.2 218.8ZM552.6 196.8Q564.2 196.8 572.0 189.3Q579.8000000000001 181.8 579.8000000000001 167.4V165.4Q579.8000000000001 151.0 572.1000000000001 143.5Q564.4000000000001 136.0 552.6 136.0Q541.0 136.0 533.2 143.5Q525.4 151.0 525.4 165.4V167.4Q525.4 181.8 533.2 189.3Q541.0 196.8 552.6 196.8Z"/><path d="M754.7600000000001 216.0 790.7600000000001 166.0 755.1600000000001 116.8H784.36L806.96 149.8H810.5600000000001L833.1600000000001 116.8H862.3600000000001L826.7600000000001 166.0L862.7600000000001 216.0H833.1600000000001L810.5600000000001 182.6H806.96L784.36 216.0Z"/></g><g transform="translate(606.20,77.76) scale(1.2800)">
+<defs><clipPath id="logo-amz-camazontransparente"><path d="M57.2 8.6 L87.8 23.9 Q95 27.5 95 35.5 L95 74.5 Q95 82.5 87.8 86.1 L57.2 101.4 Q50 105 42.8 101.4 L12.2 86.1 Q5 82.5 5 74.5 L5 35.5 Q5 27.5 12.2 23.9 L42.8 8.6 Q50 5 57.2 8.6 Z"/></clipPath></defs>
+<g transform="translate(10,5)"><g clip-path="url(#logo-amz-camazontransparente)">
+<polygon points="50,5 95,27.5 50,50 5,27.5" fill="#FFB84D"/>
+<polygon points="5,27.5 50,50 50,105 5,82.5" fill="#FF9900"/>
+<polygon points="50,50 95,27.5 95,82.5 50,105" fill="#E07F00"/>
+<polygon points="69.5,14.75 75.5,17.75 30.5,40.25 24.5,37.25" fill="#232F3E"/>
+<polygon points="24.5,37.25 30.5,40.25 30.5,95.25 24.5,92.25" fill="#232F3E"/>
+</g></g>
+<path d="M72 63 L72 105 L82 95 L90 111 L97 108 L89 92 L103 92 Z" fill="#232F3E" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+</g></svg>
+          <h3>Na <span class="acc">Amazon</span></h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Prazo de despacho cumprido:</b> ajuda a manter as métricas de desempenho da sua conta em dia.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Embalagem e etiqueta no padrão:</b> pedido bem preparado chega inteiro e sem dor de cabeça.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Estoque pronto:</b> produto organizado e localizado na hora que a venda chega.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Cresce sem contratar:</b> mais pedidos sem alugar espaço nem montar equipe.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="duvidas" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Vocês trabalham com o Full?<span class="pm" aria-hidden="true">+</span></summary><p>Sim. Recebemos seu estoque, contamos, conferimos, etiquetamos no padrão do Full e enviamos (ou liberamos pra coleta) para o centro de distribuição do Mercado Livre.</p></details>
+        <details><summary>E se eu não uso o Full?<span class="pm" aria-hidden="true">+</span></summary><p>No pacote completo a gente também despacha: separamos, embalamos e enviamos por Agência, Flex, Coleta ou Correios, dentro do prazo.</p></details>
+        <details><summary>Quem emite a nota fiscal?<span class="pm" aria-hidden="true">+</span></summary><p>Você emite pela sua conta, antes da etiqueta ser gerada. A gente cuida de toda a parte física: separar, embalar, etiquetar e despachar.</p></details>
+        <details><summary>Como acompanho meus envios?<span class="pm" aria-hidden="true">+</span></summary><p>Você tem um painel com os envios do dia, histórico e fatura, e recebe os avisos no seu grupo de WhatsApp com a Prep Box, com foto de cada pedido.</p></details>
+        <details><summary>Meu estoque fica misturado com o de outras lojas?<span class="pm" aria-hidden="true">+</span></summary><p>Nunca. Cada loja tem seu próprio estoque e um código interno exclusivo para cada produto, mesmo que outra loja venda o mesmo item.</p></details>
+        <details><summary>Quanto custa?<span class="pm" aria-hidden="true">+</span></summary><p>Depende do seu volume e do tipo de produto. Chama a gente no WhatsApp que montamos uma proposta pra sua operação.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" style="padding-bottom:24px">
+    <div class="final">
+      <h2>Sua loja, <span>pronta pra enviar.</span></h2>
+      <p>Conta pra gente o que você vende e como você envia hoje. Em uma conversa você já sabe como a Prep Box encaixa na sua operação.</p>
+      <a class="btn wa" href="https://wa.me/?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Prep%20Box." rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <svg xmlns="http://www.w3.org/2000/svg" class="logo-foot" role="img" aria-label="Prep Box" viewBox="0 0 921 320"><g fill="#111111"><path d="M75.259912109375 256.0V117.499951171875H95.440234375V131.5298095703125H98.620263671875Q102.30024414062501 124.95986328125 110.09520263671875 119.8299072265625Q117.8901611328125 114.699951171875 132.20009765625002 114.699951171875Q144.55007324218752 114.699951171875 154.89006347656252 120.6699462890625Q165.2300537109375 126.63994140624999 171.46505126953127 137.96994628906248Q177.700048828125 149.299951171875 177.700048828125 165.2899658203125V168.2099853515625Q177.700048828125 184.1300048828125 171.500048828125 195.49500732421876Q165.300048828125 206.860009765625 154.96005859375 212.8300048828125Q144.620068359375 218.8 132.20009765625002 218.8Q122.64013671875 218.8 116.0501708984375 216.42001953125Q109.460205078125 214.0400390625 105.4102294921875 210.28507080078126Q101.36025390625 206.5301025390625 99.020263671875 202.64013671875H95.840234375V256.0ZM126.27998046875 200.7197265625Q139.75986328125 200.7197265625 148.3697998046875 192.13480224609376Q156.979736328125 183.5498779296875 156.979736328125 167.67998046875V165.819970703125Q156.979736328125 149.9500732421875 148.30479736328124 141.36514892578126Q139.6298583984375 132.780224609375 126.27998046875 132.780224609375Q113.00009765625 132.780224609375 104.2901611328125 141.36514892578126Q95.580224609375 149.9500732421875 95.580224609375 165.819970703125V167.67998046875Q95.580224609375 183.5498779296875 104.2901611328125 192.13480224609376Q113.00009765625 200.7197265625 126.27998046875 200.7197265625Z"/><path d="M197.459912109375 216.0V117.499951171875H217.64023437500003V129.0499267578125H220.820263671875Q223.23024902343752 122.83994140624999 228.47023925781252 119.96994628906249Q233.71022949218752 117.09995117187499 241.56015625000003 117.09995117187499H253.3501708984375V135.580224609375H240.81018066406253Q230.72021484375003 135.580224609375 224.38022460937503 141.06519775390626Q218.040234375 146.5501708984375 218.040234375 158.060107421875V216.0Z"/><path d="M313.919921875 218.8Q299.0499267578125 218.8 287.819921875 212.5Q276.5899169921875 206.2 270.3249145507813 194.73499755859376Q264.05991210937503 183.2699951171875 264.05991210937503 167.9499755859375V165.5499755859375Q264.05991210937503 150.1599609375 270.259912109375 138.72995605468748Q276.459912109375 127.299951171875 287.5549194335938 120.999951171875Q298.6499267578125 114.699951171875 313.1699462890625 114.699951171875Q327.41997070312505 114.699951171875 338.1149780273438 120.91997070312499Q348.80998535156255 127.13999023437499 354.80998535156255 138.360009765625Q360.80998535156255 149.580029296875 360.80998535156255 164.6400390625V172.4700927734375H284.90024414062503Q285.3702392578125 185.4698974609375 293.72515869140625 193.09481201171874Q302.080078125 200.7197265625 314.43994140625 200.7197265625Q326.0898681640625 200.7197265625 331.9648071289063 195.559765625Q337.83974609375 190.3998046875 340.9297119140625 183.6098876953125L358.09995117187503 192.3100341796875Q355.22995605468753 198.0 349.9299560546875 204.1699951171875Q344.6299560546875 210.339990234375 335.9699462890625 214.5699951171875Q327.3099365234375 218.8 313.919921875 218.8ZM285.100244140625 156.6098876953125H339.899658203125Q339.09965820312505 145.4900634765625 331.8447387695313 139.13514404296876Q324.58981933593753 132.780224609375 313.03994140625 132.780224609375Q301.300048828125 132.780224609375 294.04013671875 139.13514404296876Q286.780224609375 145.4900634765625 285.100244140625 156.6098876953125Z"/><path d="M379.65991210937506 256.0V117.499951171875H399.840234375V131.5298095703125H403.02026367187506Q406.70024414062505 124.95986328125 414.4952026367188 119.8299072265625Q422.29016113281256 114.699951171875 436.60009765625006 114.699951171875Q448.95007324218756 114.699951171875 459.2900634765625 120.6699462890625Q469.63005371093755 126.63994140624999 475.8650512695313 137.96994628906248Q482.10004882812507 149.299951171875 482.10004882812507 165.2899658203125V168.2099853515625Q482.10004882812507 184.1300048828125 475.900048828125 195.49500732421876Q469.70004882812503 206.860009765625 459.36005859375007 212.8300048828125Q449.02006835937505 218.8 436.60009765625006 218.8Q427.04013671875003 218.8 420.45017089843753 216.42001953125Q413.86020507812503 214.0400390625 409.81022949218755 210.28507080078126Q405.76025390625006 206.5301025390625 403.42026367187503 202.64013671875H400.24023437500006V256.0ZM430.67998046875005 200.7197265625Q444.15986328125007 200.7197265625 452.7697998046875 192.13480224609376Q461.37973632812503 183.5498779296875 461.37973632812503 167.67998046875V165.819970703125Q461.37973632812503 149.9500732421875 452.7047973632813 141.36514892578126Q444.02985839843757 132.780224609375 430.67998046875005 132.780224609375Q417.40009765625007 132.780224609375 408.6901611328126 141.36514892578126Q399.98022460937506 149.9500732421875 399.98022460937506 165.819970703125V167.67998046875Q399.98022460937506 183.5498779296875 408.6901611328126 192.13480224609376Q417.40009765625007 200.7197265625 430.67998046875005 200.7197265625Z"/><path d="M560.2 218.8Q546.8000000000001 218.8 539.6 214.2Q532.4 209.6 529.0 204.0H525.4V216.0H500.6V76.0H525.8000000000001V128.2H529.4Q531.6 124.6 535.3 121.39999999999999Q539.0 118.19999999999999 545.1 116.1Q551.2 114.0 560.2 114.0Q572.2 114.0 582.4000000000001 119.9Q592.6 125.8 598.8 137.2Q605.0 148.6 605.0 164.8V168.0Q605.0 184.2 598.8 195.6Q592.6 207.0 582.4000000000001 212.9Q572.2 218.8 560.2 218.8ZM552.6 196.8Q564.2 196.8 572.0 189.3Q579.8000000000001 181.8 579.8000000000001 167.4V165.4Q579.8000000000001 151.0 572.1000000000001 143.5Q564.4000000000001 136.0 552.6 136.0Q541.0 136.0 533.2 143.5Q525.4 151.0 525.4 165.4V167.4Q525.4 181.8 533.2 189.3Q541.0 196.8 552.6 196.8Z"/><path d="M754.7600000000001 216.0 790.7600000000001 166.0 755.1600000000001 116.8H784.36L806.96 149.8H810.5600000000001L833.1600000000001 116.8H862.3600000000001L826.7600000000001 166.0L862.7600000000001 216.0H833.1600000000001L810.5600000000001 182.6H806.96L784.36 216.0Z"/></g><g transform="translate(606.20,77.76) scale(1.2800)">
+<defs><clipPath id="logo-foot-cprincipaltransparente"><path d="M57.2 8.6 L87.8 23.9 Q95 27.5 95 35.5 L95 74.5 Q95 82.5 87.8 86.1 L57.2 101.4 Q50 105 42.8 101.4 L12.2 86.1 Q5 82.5 5 74.5 L5 35.5 Q5 27.5 12.2 23.9 L42.8 8.6 Q50 5 57.2 8.6 Z"/></clipPath></defs>
+<g transform="translate(10,5)"><g clip-path="url(#logo-foot-cprincipaltransparente)">
+<polygon points="50,5 95,27.5 50,50 5,27.5" fill="#FFD84D"/>
+<polygon points="5,27.5 50,50 50,105 5,82.5" fill="#FFC400"/>
+<polygon points="50,50 95,27.5 95,82.5 50,105" fill="#E0A800"/>
+<polygon points="69.5,14.75 75.5,17.75 30.5,40.25 24.5,37.25" fill="#111111"/>
+<polygon points="24.5,37.25 30.5,40.25 30.5,95.25 24.5,92.25" fill="#111111"/>
+</g></g>
+<path d="M72 63 L72 105 L82 95 L90 111 L97 108 L89 92 L103 92 Z" fill="#111111" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+</g></svg>
+    <span>© 2026 Prep Box · Recebimento, armazenagem, preparação e envio para e-commerce</span>
+  </div>
+</footer>
+</body>
+</html>
