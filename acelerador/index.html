@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout · Acelerador Real | realecom</title>
+<meta name="description" content="Acelerador Real com condição de Black Friday até domingo, 23h59.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --o:#FF5200; --bg:#0D0D0D; --card:#161616; --line:rgba(255,255,255,.1); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Montserrat',sans-serif; background:var(--bg); color:#fff; line-height:1.45; }
+  .bar { background:var(--o); color:#0D0D0D; text-align:center; font-weight:900; letter-spacing:3px; font-size:12px; padding:10px 12px; }
+  .stripes { height:10px; background:repeating-linear-gradient(-45deg,var(--o) 0 10px,var(--bg) 10px 20px); }
+  .top { max-width:1080px; margin:0 auto; padding:20px 20px 0; display:flex; justify-content:space-between; align-items:center; }
+  .top img { height:28px; }
+  .top .lock { font-size:12px; font-weight:700; color:rgba(255,255,255,.5); }
+  .o { color:var(--o); }
+  main { max-width:1080px; margin:0 auto; padding:24px 20px 40px; display:grid; grid-template-columns:1fr 1.05fr; gap:28px; align-items:start; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; }
+  .tag { display:inline-block; background:var(--o); color:#0D0D0D; font-weight:900; font-size:11px; letter-spacing:2px; padding:6px 10px; border-radius:6px; }
+  h1 { font-weight:900; font-size:30px; letter-spacing:-1px; margin:14px 0 4px; }
+  .sub { color:rgba(255,255,255,.6); font-size:14px; }
+  ul { list-style:none; margin:20px 0; display:grid; gap:10px; }
+  li { display:flex; gap:10px; font-size:14px; font-weight:600; }
+  li::before { content:"✓"; color:var(--o); font-weight:900; flex:none; }
+  .bonus { border:2px dashed var(--o); border-radius:12px; padding:14px 16px; margin:18px 0; }
+  .bonus b { color:var(--o); font-size:12px; letter-spacing:2px; }
+  .bonus p { font-weight:700; font-size:15px; margin-top:4px; }
+  .bonus small { color:rgba(255,255,255,.6); font-size:12px; }
+  .price { border-top:1px solid var(--line); margin-top:16px; padding-top:18px; }
+  .price .de { color:rgba(255,255,255,.45); font-size:14px; font-weight:600; }
+  .price .row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .price .off { background:var(--o); color:#0D0D0D; font-weight:900; font-size:14px; padding:4px 8px; border-radius:6px; }
+  .price .parc { font-weight:900; font-size:38px; letter-spacing:-1px; line-height:1.1; margin-top:6px; }
+  .price .vista { color:rgba(255,255,255,.7); font-size:14px; font-weight:600; }
+  .prazo { margin-top:14px; font-size:13px; font-weight:700; color:var(--o); }
+  .prints { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:10px; }
+  .prints img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:top; border-radius:8px; }
+  .prints-t { font-size:12px; font-weight:800; letter-spacing:2px; color:rgba(255,255,255,.5); margin-top:22px; }
+  h2 { font-weight:900; font-size:22px; letter-spacing:-.5px; }
+  .step { font-size:12px; font-weight:800; letter-spacing:2px; color:var(--o); margin-bottom:6px; }
+  form { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:18px; }
+  .f { grid-column:span 6; display:flex; flex-direction:column; gap:5px; }
+  .f.s3 { grid-column:span 3; } .f.s2 { grid-column:span 2; } .f.s4 { grid-column:span 4; }
+  label { font-size:12px; font-weight:700; color:rgba(255,255,255,.65); }
+  input, select { font-family:inherit; font-size:16px; padding:13px; border:1.5px solid rgba(255,255,255,.14); border-radius:10px; background:#0D0D0D; color:#fff; width:100%; }
+  input:focus, select:focus { outline:none; border-color:var(--o); }
+  .err { border-color:#ff4d4d !important; }
+  .check { grid-column:span 6; display:flex; gap:10px; align-items:flex-start; font-size:12px; color:rgba(255,255,255,.6); }
+  .check input { margin-top:2px; width:16px; height:16px; flex:none; }
+  #msg { grid-column:span 6; font-weight:700; font-size:14px; color:#ff4d4d; min-height:18px; }
+  .btn { grid-column:span 6; background:var(--o); color:#0D0D0D; font-weight:900; font-size:18px; padding:18px; border-radius:12px; border:0; cursor:pointer; font-family:inherit; }
+  .btn:disabled { opacity:.6; }
+  .seguro { grid-column:span 6; text-align:center; font-size:12px; color:rgba(255,255,255,.45); }
+  footer { text-align:center; font-size:12px; color:rgba(255,255,255,.35); padding:10px 0 30px; }
+  .toggle { display:none; background:none; border:0; color:var(--o); font-weight:800; font-size:13px; margin-top:10px; cursor:pointer; font-family:inherit; padding:0; }
+  @media (max-width:820px) {
+    main { grid-template-columns:1fr; }
+    .f.s3, .f.s2, .f.s4 { grid-column:span 6; }
+    .resumo ul { display:none; }
+    .resumo.aberto ul { display:grid; }
+    .toggle { display:inline-block; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">BLACK FRIDAY · 48% OFF ATÉ DOMINGO, 23H59</div>
+<div class="stripes"></div>
+<div class="top"><img src="img/logo.png" alt="realecom"><span class="lock">🔒 Checkout seguro</span></div>
+
+<main>
+  <div class="card resumo" id="resumo">
+    <span class="tag">RESUMO DO PEDIDO</span>
+    <h1>Acelerador <span class="o">Real</span></h1>
+    <div class="sub">Método completo + 4 calls comigo + acompanhamento até o Full liberar</div>
+    <button class="toggle" type="button" onclick="document.getElementById('resumo').classList.toggle('aberto')">Ver tudo que está incluso ▾</button>
+    <ul>
+      <li>Método Real completo: aulas gravadas + contatos para estruturar sua loja</li>
+      <li>4 calls direto comigo sobre o Triângulo da Viabilidade</li>
+      <li>1 call por mês com todos os mentorados</li>
+      <li>Grupo aberto comigo para dúvidas e troca de ideias</li>
+      <li>2 meses de acompanhamento, e eu sigo com você até o Full liberar</li>
+      <li>Bônus: Calculadora REAL por 1 ano</li>
+    </ul>
+    <div class="bonus">
+      <b>BÔNUS DE QUEM FECHA NA LIVE</b>
+      <p>Lista com mais de 100 fornecedores validados</p>
+      <small>Você fecha, eu te mando a lista para você já começar a aplicar o método.</small>
+    </div>
+    <div class="price">
+      <div class="de">De <s>R$ 2.497,98</s></div>
+      <div class="row"><span class="parc">12x de R$ <span data-parcela>108,17</span></span><span class="off">48% OFF</span></div>
+      <div class="vista">sem juros no cartão · ou R$ <span data-preco>1.297,98</span> à vista</div>
+      <div class="prazo">Condição de Black Friday até domingo, 23h59. Depois, volta ao preço normal.</div>
+    </div>
+    <div class="prints-t">QUEM APLICOU</div>
+    <div class="prints">
+      <img src="img/rod_159.jpg" alt="" loading="lazy">
+      <img src="img/roberta.jpg" alt="" loading="lazy">
+      <img src="img/marcel_dash.jpg" alt="" loading="lazy">
+      <img src="img/ariela_full.jpg" alt="" loading="lazy">
+      <img src="img/claudemir.jpg" alt="" loading="lazy">
+      <img src="img/alana_cx.jpg" alt="" loading="lazy">
+      <img src="img/rod_46.jpg" alt="" loading="lazy">
+      <img src="img/ray.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+
+  <div class="card" id="cadastro">
+    <div class="step">PASSO 1 DE 2</div>
+    <h2>Seus dados para o contrato</h2>
+    <form id="form" novalidate>
+      <div class="f"><label for="nome">Nome completo</label><input id="nome" autocomplete="name" required></div>
+      <div class="f s3"><label for="cpf">CPF</label><input id="cpf" inputmode="numeric" placeholder="000.000.000-00" required></div>
+      <div class="f s3"><label for="telefone">WhatsApp</label><input id="telefone" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
+      <div class="f"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="f s2"><label for="cep">CEP</label><input id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" required></div>
+      <div class="f s4"><label for="rua">Rua</label><input id="rua" autocomplete="address-line1" required></div>
+      <div class="f s2"><label for="numero">Número</label><input id="numero" required></div>
+      <div class="f s4"><label for="complemento">Complemento</label><input id="complemento" autocomplete="address-line2"></div>
+      <div class="f s2"><label for="bairro">Bairro</label><input id="bairro" required></div>
+      <div class="f s2"><label for="cidade">Cidade</label><input id="cidade" autocomplete="address-level2" required></div>
+      <div class="f s2"><label for="uf">UF</label><select id="uf" required><option value="">UF</option></select></div>
+      <label class="check"><input type="checkbox" id="aceite"><span>Autorizo o uso dos meus dados para emissão do contrato e contato sobre a mentoria, conforme a LGPD.</span></label>
+      <div id="msg"></div>
+      <button class="btn" type="submit" id="enviar">Continuar para o pagamento →</button>
+      <div class="seguro">Passo 2: pagamento seguro pela InfinitePay</div>
+    </form>
+  </div>
+</main>
+
+<footer>realecom · @filipemelchiorecom</footer>
+
+<script>
+  // ===== CONFIGURAÇÃO (edite aqui) =====
+  const CONFIG = {
+    CHECKOUT_URL: "https://link.infinitepay.io/filipe-augusto-9q8/Ri1D-SaHxKZwhBT-1297,98",
+    SHEETS_URL: "https://script.google.com/macros/s/AKfycbxweu7KJ7avwFiWNAct-_I0v8TstizQFrLV4x7IC1clNDeEoleJJvXT3cetVvuagZxxRQ/exec",
+    PRECO: "1.297,98",
+    PARCELA: "108,17"
+  };
+  // =====================================
+  document.querySelectorAll('[data-preco]').forEach(e => e.textContent = CONFIG.PRECO);
+  document.querySelectorAll('[data-parcela]').forEach(e => e.textContent = CONFIG.PARCELA);
+
+  const ufSel = document.getElementById('uf');
+  "AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split(" ")
+    .forEach(u => { const o = document.createElement('option'); o.value = o.textContent = u; ufSel.appendChild(o); });
+
+  const $ = id => document.getElementById(id);
+  const so = v => v.replace(/\D/g, '');
+  const mask = (el, fn) => el.addEventListener('input', () => { el.value = fn(so(el.value)); });
+  mask($('cpf'), d => d.slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2'));
+  mask($('telefone'), d => d.slice(0,11).replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d{1,4})$/,'$1-$2'));
+  mask($('cep'), d => d.slice(0,8).replace(/^(\d{5})(\d)/,'$1-$2'));
+
+  function cpfValido(c) {
+    c = so(c); if (c.length !== 11 || /^(\d)\1+$/.test(c)) return false;
+    for (let t = 9; t < 11; t++) {
+      let s = 0; for (let i = 0; i < t; i++) s += c[i] * (t + 1 - i);
+      if (((s * 10) % 11) % 10 != c[t]) return false;
+    }
+    return true;
+  }
+
+  $('cep').addEventListener('blur', async () => {
+    const cep = so($('cep').value); if (cep.length !== 8) return;
+    try {
+      const r = await fetch('https://viacep.com.br/ws/' + cep + '/json/'); const d = await r.json();
+      if (d.erro) return;
+      if (!$('rua').value) $('rua').value = d.logradouro || '';
+      if (!$('bairro').value) $('bairro').value = d.bairro || '';
+      if (!$('cidade').value) $('cidade').value = d.localidade || '';
+      if (d.uf) $('uf').value = d.uf;
+      $('numero').focus();
+    } catch (e) {}
+  });
+
+  $('form').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const msg = $('msg'); msg.textContent = '';
+    document.querySelectorAll('.err').forEach(e => e.classList.remove('err'));
+    const req = ['nome','cpf','telefone','email','cep','rua','numero','bairro','cidade','uf'];
+    let ok = true;
+    req.forEach(id => { if (!$(id).value.trim()) { $(id).classList.add('err'); ok = false; } });
+    if (!ok) { msg.textContent = 'Preencha todos os campos obrigatórios.'; return; }
+    if (!cpfValido($('cpf').value)) { $('cpf').classList.add('err'); msg.textContent = 'CPF inválido.'; return; }
+    if (!/^\S+@\S+\.\S+$/.test($('email').value)) { $('email').classList.add('err'); msg.textContent = 'E-mail inválido.'; return; }
+    if (so($('telefone').value).length < 10) { $('telefone').classList.add('err'); msg.textContent = 'Telefone inválido.'; return; }
+    if (!$('aceite').checked) { msg.textContent = 'Marque a autorização para continuar.'; return; }
+
+    const btn = $('enviar'); btn.disabled = true; btn.textContent = 'Indo para o pagamento...';
+    const dados = { data: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }) };
+    req.concat(['complemento']).forEach(id => dados[id] = $(id).value.trim());
+    try {
+      const ctrl = new AbortController(); setTimeout(() => ctrl.abort(), 8000);
+      await fetch(CONFIG.SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(dados), signal: ctrl.signal });
+    } catch (e) {}
+    window.location.href = CONFIG.CHECKOUT_URL;
+  });
+</script>
+</body>
+</html>
