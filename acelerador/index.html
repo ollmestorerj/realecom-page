@@ -64,6 +64,11 @@
     .resumo.aberto ul { display:grid; }
     .toggle { display:inline-block; }
   }
+  .gar { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; }
+  .gar div { border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .gar b { display:block; color:var(--o); font-size:13px; font-weight:900; margin-bottom:4px; }
+  .gar p { font-size:12px; color:rgba(255,255,255,.7); }
+  @media (max-width:480px) { .gar { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -96,6 +101,10 @@
       <div class="row"><span class="parc">12x de R$ <span data-parcela>108,17</span></span><span class="off">48% OFF</span></div>
       <div class="vista">sem juros no cartão · ou R$ <span data-preco>1.297,98</span> à vista</div>
       <div class="prazo">Condição de Black Friday até domingo, 23h59. Depois, volta ao preço normal.</div>
+    </div>
+    <div class="gar">
+      <div><b>🛡️ Garantia de 7 dias</b><p>Pelo Código de Defesa do Consumidor, você tem 7 dias para desistir e receber 100% de volta.</p></div>
+      <div><b>📦 Garantia do Full</b><p>O Full é a logística do Mercado Livre: seu estoque fica no centro deles, que embalam e entregam por você. Aplicou o método e vendeu com constância nos 60 dias? Eu sigo com você até o Full liberar.</p></div>
     </div>
     <div class="prints-t">QUEM APLICOU</div>
     <div class="prints">
